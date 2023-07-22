@@ -1,0 +1,80 @@
+[
+  {
+    "model": "catalog.product",
+    "pk": 1,
+    "fields": {
+      "title": "Дюна",
+      "specification": "Автор \"Фрэнк Герберт\"",
+      "preview_image": "",
+      "category": 1,
+      "price": 3000,
+      "creation_date": "2023-07-22",
+      "last_modified": "2023-07-22"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+      "title": "Человек-паук",
+      "specification": "Автор \"Стен Ли\"",
+      "preview_image": "",
+      "category": 2,
+      "price": 1500,
+      "creation_date": "2023-07-22",
+      "last_modified": "2023-07-22"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
+      "title": "Супермен",
+      "specification": "Автор \"Джером Сигел\"",
+      "preview_image": "",
+      "category": 2,
+      "price": 2500,
+      "creation_date": "2023-07-22",
+      "last_modified": "2023-07-22"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 4,
+    "fields": {
+      "title": "Бэтмен",
+      "specification": "Автор \"Боб Клэйн\"",
+      "preview_image": "",
+      "category": 2,
+      "price": 2500,
+      "creation_date": "2023-07-22",
+      "last_modified": "2023-07-22"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 5,
+    "fields": {
+      "title": "Война и мир",
+      "specification": "Автор \"Лев Толстой\"",
+      "preview_image": "",
+      "category": 1,
+      "price": 4500,
+      "creation_date": "2023-07-22",
+      "last_modified": "2023-07-22"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 6,
+    "fields": {
+      "title": "Веном",
+      "specification": "Автор \"Тод Макфарлейн\"",
+      "preview_image": "",
+      "category": 2,
+      "price": 1500,
+      "creation_date": "2023-07-22",
+      "last_modified": "2023-07-22"
+    }
+  }
+]

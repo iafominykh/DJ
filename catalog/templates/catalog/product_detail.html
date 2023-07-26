@@ -1,27 +1,28 @@
 {% extends 'catalog/base.html' %}
+{% load my_tags %}
 {% block content %}
+{% load static %}
 <div class="row">
-    {% for object in object_list %}
-    {% load static %}
     <div class="col-md-4">
         <div class="card mb-4 box-shadow">
-
             <img class="card-img-top"
-                 src="{%static 'image/books2.jpg'%}"
+                 src="{{object.preview_image|my_media}}"
                  alt="Card image cap">
             <div class="card-body">
                 <h2>{{object.name}}</h2>
+                <p class="card-text">{{object.title|truncatechars:100}}</p>
                 <p class="card-text">{{object.specification|truncatechars:100}}</p>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                        <a href="{% url 'catalog:category_product' object.pk %}" type="button"
-                           class="btn btn-sm btn-outline-secondary">Просмотр</a>
+                        <a href="{% url 'catalog:update_product' object.pk %}" type="button"
+                           class="btn btn-sm btn-outline-secondary">Редактировать</a>
+                        <a href="{% url 'catalog:product_confirm_delete' object.pk %}" type="button"
+                           class="btn btn-sm btn-outline-secondary">Удалить</a>
                     </div>
 
                 </div>
             </div>
         </div>
     </div>
-    {% endfor %}
 </div>
 {% endblock %}

@@ -1,3 +1,4 @@
+from django.db.models import Q
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
@@ -23,11 +24,19 @@ def index(request):
 class ProductListView(ListView):
     model = Product
 
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        if query:
+            return Product.objects.filter(Q(title__icontains=query) | Q(specification__icontains=query))
+        else:
+            return Product.objects.all()
+
 
 class ProductDetailView(DetailView):
     model = Product
     template_name = 'catalog/product_detail.html'
     context_object_name = 'product'
+
 
 class CategoryProductDetailView(DetailView):
     model = Category
@@ -40,6 +49,7 @@ class CategoryProductDetailView(DetailView):
         context['title'] = 'Товары'
         context['object_list'] = category_item.product_set.all()
         return context
+
 
 class ProductCreateView(CreateView):
     model = Product

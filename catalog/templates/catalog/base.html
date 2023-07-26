@@ -40,16 +40,18 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{% url 'catalog:create_product'%}">Добавить товар</a></li>
-                        <li><a class="dropdown-item" href="#">Другое действие</a></li>
+                        <li><a class="dropdown-item" href="{% url 'info:list'%}">К Обзорам</a></li>
                         <li><a class="dropdown-item" href="#">Что-то еще здесь</a></li>
                     </ul>
                 </li>
             </ul>
-            <div class="container-fluid">
-                <form class="d-flex" role="search">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Поиск" aria-label="Поиск">
+            <div class="container">
+
+                <form class="d-flex" action="{% url 'catalog:product_list' %}" method="get">
+                    <input class="form-control me-2" type="text" placeholder="Поиск" name="q" aria-label="Поиск">
                     <button class="btn btn-outline-success" type="submit">Поиск</button>
                 </form>
+
             </div>
         </div>
     </div>
@@ -58,10 +60,10 @@
     <div class="container">
         <h1 class="jumbotron-heading">{{title}}</h1>
 
-<!--        <p>-->
-<!--            <a href="#" class="btn btn-primary my-2">Main call to action</a>-->
-<!--            <a href="#" class="btn btn-secondary my-2">Secondary action</a>-->
-<!--        </p>-->
+        <!--        <p>-->
+        <!--            <a href="#" class="btn btn-primary my-2">Main call to action</a>-->
+        <!--            <a href="#" class="btn btn-secondary my-2">Secondary action</a>-->
+        <!--        </p>-->
     </div>
 </section>
 

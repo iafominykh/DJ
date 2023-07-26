@@ -1,0 +1,23 @@
+{% extends 'catalog/base.html' %}
+
+{% block content %}
+{% load my_tags %}
+<div class="col-12 mb-5">
+    <a class="btn btn-outline-primary" href="{% url 'info:create' %}">Добавить блог</a>
+</div>
+<div class="row">
+    {% for object in object_list%}
+    <div class="col-md-4">
+        <h2>{{object.title}}</h2>
+        <img src="{{ object.image|my_media }}" alt="PC" style="width: 350px; height: 225px;">
+        <p>{{object.specification}}</p>
+        <div class="btn-group mb-5">
+            <a href="{% url 'info:view' object.pk %}" class="btn btn-outline-secondary active"
+               aria-current="page">View</a>
+            <a href="{% url 'info:edit' object.pk %}" class="btn btn-success">Update</a>
+            <a href="{% url 'info:delete' object.pk %}" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

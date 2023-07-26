@@ -1,0 +1,16 @@
+{% extends 'catalog/base.html' %}
+
+{% block content %}
+{% load static %}
+<div class="row">
+    <div class="col-md-4">
+        <h2>Название: {{object.title}}</h2>
+        <p>Slug: {{object.slug}}</p>
+        <p>Контент: {{object.content}}</p>
+        <p>Признак публикации: {{object.publication_feature}}</p>
+        <p>Просмотры: {{ object.views_count }}</p>
+        <a href="{% url 'info:edit' object.pk %}" class="btn btn-success">Update</a>
+        <a href="{% url 'info:list' %}" class="btn btn-secondary">Back</a>
+    </div>
+</div>
+{% endblock %}

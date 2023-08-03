@@ -41,7 +41,12 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{% url 'catalog:create_product'%}">Добавить товар</a></li>
                         <li><a class="dropdown-item" href="{% url 'info:list'%}">К Обзорам</a></li>
-                        <li><a class="dropdown-item" href="#">Что-то еще здесь</a></li>
+                        {% if user.is_authenticated %}
+                        <li><a class="dropdown-item" href="{% url 'users:logout' %}">Выход</a></li>
+                        {% else %}
+                        <li><a class="dropdown-item" href="{% url 'users:login' %}">Вход</a></li>
+                        <li><a class="dropdown-item" href="{% url 'users:register' %}">Регистрация</a></li>
+                        {% endif %}
                     </ul>
                 </li>
             </ul>

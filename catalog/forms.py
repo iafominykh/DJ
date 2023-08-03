@@ -15,14 +15,26 @@ class ProductForm(StyleFormMixin, forms.ModelForm):
         model = Product
         fields = ('title', 'category', 'preview_image', 'specification')
 
-    def clear_title(self):
-        pass
+    def clean_title(self):
+        forbidden_words = ['эротика', 'порно', 'прон', 'porn', 'erotic', 'дурак', 'какоетослово', 'тестовоеслово',
+                           'pepper']
+        cleaned_title = self.cleaned_data['title']
+        for word in forbidden_words:
+            if word in cleaned_title.lower():
+                raise forms.ValidationError('Недопустимое слово в названии продукта: {}'.format(word))
+        return cleaned_title
 
-    def clear_specification(self):
-        pass
+    def clean_specification(self):
+        forbidden_words = ['эротика', 'порно', 'прон', 'porn', 'erotic', 'дурак', 'какоетослово', 'тестовоеслово',
+                           'pepper']
+        cleaned_specification = self.cleaned_data['specification']
+        for word in forbidden_words:
+            if word in cleaned_specification.lower():
+                raise forms.ValidationError('Недопустимое слово в описании продукта: {}'.format(word))
+        return cleaned_specification
 
 
 class VersionForm(StyleFormMixin, forms.ModelForm):
     class Meta:
         model = Version
-        fields = ('version_number','version_title', )
+        fields = ('version_number', 'version_title',)

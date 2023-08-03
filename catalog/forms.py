@@ -15,7 +15,7 @@ class ProductForm(StyleFormMixin, forms.ModelForm):
         model = Product
         fields = ('title', 'category', 'preview_image', 'specification')
 
-    def clear_name(self):
+    def clear_title(self):
         pass
 
     def clear_specification(self):

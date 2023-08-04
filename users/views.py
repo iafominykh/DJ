@@ -21,5 +21,5 @@ class LogoutView(BaseLogoutView):
 class RegisterView(CreateView):
     model = User
     form_class = UserForm
-    success_url = reverse_lazy('users:login.html')
+    success_url = reverse_lazy('users:login')
     template_name = 'users/register.html'

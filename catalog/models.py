@@ -1,3 +1,4 @@
+from django.core.exceptions import ValidationError
 from django.db import models
 
 
@@ -28,6 +29,8 @@ class Product(models.Model):
     creation_date = models.DateField(auto_now_add=True, verbose_name='Дата создания')
     last_modified = models.DateField(auto_now=True, verbose_name='Дата последнего изменения')
 
+
+
     def __str__(self):
         return f'{self.title} ({self.category}): {self.price}'
 
@@ -49,19 +52,5 @@ class Version(models.Model):
         verbose_name = 'Версия'
         verbose_name_plural = 'Версии'
 
-
-# class User(models.Model):
-#     email = models.EmailField(unique=True)
-#     password = models.CharField(max_length=128)
-#     avatar = models.ImageField(upload_to='avatars/', **NULLABLE)
-#     phone_number = models.CharField(max_length=20, **NULLABLE)
-#     country = models.CharField(max_length=50, **NULLABLE)
-#
-#     def __str__(self):
-#         return f'{self.email}'
-#
-#     class Meta:
-#         verbose_name = 'Пользователь'
-#         verbose_name_plural = 'Пользователи'
 
 

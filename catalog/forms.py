@@ -34,7 +34,22 @@ class ProductForm(StyleFormMixin, forms.ModelForm):
         return cleaned_specification
 
 
+
+
 class VersionForm(StyleFormMixin, forms.ModelForm):
     class Meta:
         model = Version
-        fields = ('version_number', 'version_title',)
+        fields = '__all__'
+
+    def __init__(self, *args, **kwargs):
+        self.product = kwargs.pop('product', None)
+        super().__init__(*args, **kwargs)
+
+    def get_versions(self):
+        if self.product:
+            return self.product.version_set.all()
+        else:
+            return Version.objects.none()
+
+
+

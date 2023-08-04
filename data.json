@@ -1,5 +1,37 @@
 [
   {
+    "model": "catalog.category",
+    "pk": 1,
+    "fields": {
+      "name": "Книги",
+      "specification": "Топовые книги"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+      "name": "Комиксы",
+      "specification": "Графические"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 3,
+    "fields": {
+      "name": "Манга",
+      "specification": "японские комиксы[1], иногда называемые комикку (コミック)[2][3]. Манга в форме, в которой она существует в настоящее время, начала развиваться после окончания Второй мировой войны[4], испытав сильное влияние западных традиций. Однако манга имеет глубокие корни в раннем японском искусстве[5][6][7].\r\n\r\nВ Японии мангу читают люди всех возрастов. Манга уважаема как форма изобразительного искусства и как литературное явление. Поэтому существует множество произведений разных жанров и на самые разнообразные темы: приключения, романтика, спорт, история, юмор, научная фантастика, ужасы, эротика, бизнес и другие[8].\r\n\r\nПочти вся манга рисуется и издаётся чёрно-белой[9], хотя существует и цветная, например, Colorful, название которой переводится с английского как «красочный». По популярной манге, чаще всего длинным манга-сериалам (иногда неоконченным[10]), снимается аниме, а также могут создаваться ранобэ, видеоигры и другие производные произведения[11][12]. Создание аниме по уже существующей манге имеет смысл с коммерческой точки зрения — рисование манги обычно менее затратно, а анимационные студии имеют возможность определить, оказалась ли популярна та или иная манга, чтобы её можно было экранизировать"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 4,
+    "fields": {
+      "name": "Новинки-литературы",
+      "specification": "Произведения вышедшие в текущем году"
+    }
+  },
+  {
     "model": "catalog.product",
     "pk": 1,
     "fields": {
@@ -9,7 +41,7 @@
       "category": 1,
       "price": 3000,
       "creation_date": "2023-07-22",
-      "last_modified": "2023-07-22"
+      "last_modified": "2023-08-03"
     }
   },
   {
@@ -22,7 +54,7 @@
       "category": 2,
       "price": 1500,
       "creation_date": "2023-07-22",
-      "last_modified": "2023-07-22"
+      "last_modified": "2023-08-03"
     }
   },
   {
@@ -35,7 +67,7 @@
       "category": 2,
       "price": 2500,
       "creation_date": "2023-07-22",
-      "last_modified": "2023-07-22"
+      "last_modified": "2023-08-03"
     }
   },
   {
@@ -48,7 +80,7 @@
       "category": 2,
       "price": 2500,
       "creation_date": "2023-07-22",
-      "last_modified": "2023-07-22"
+      "last_modified": "2023-08-03"
     }
   },
   {
@@ -61,7 +93,7 @@
       "category": 1,
       "price": 4500,
       "creation_date": "2023-07-22",
-      "last_modified": "2023-07-22"
+      "last_modified": "2023-08-03"
     }
   },
   {
@@ -74,7 +106,136 @@
       "category": 2,
       "price": 1500,
       "creation_date": "2023-07-22",
-      "last_modified": "2023-07-22"
+      "last_modified": "2023-08-03"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 7,
+    "fields": {
+      "title": "One Piece",
+      "specification": "сёнэн-манга\r\nАвтор Эйитиро Ода",
+      "preview_image": "product/OnePiece_1.jpg",
+      "category": 3,
+      "price": 500,
+      "creation_date": "2023-07-22",
+      "last_modified": "2023-08-03"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 8,
+    "fields": {
+      "title": "Парни из Билокси",
+      "specification": "Автор Джон Гришэм",
+      "preview_image": "product/knigi_jc2cuBF.jpg",
+      "category": 4,
+      "price": 650,
+      "creation_date": "2023-07-22",
+      "last_modified": "2023-08-03"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 11,
+    "fields": {
+      "title": "Тест",
+      "specification": "Что-то",
+      "preview_image": "product/Final-Fantasy-Ifrit-Final-Fantasy-artwork-fire-digital-1539583.png",
+      "category": 3,
+      "price": 25,
+      "creation_date": "2023-07-26",
+      "last_modified": "2023-08-03"
+    }
+  },
+  {
+    "model": "catalog.version",
+    "pk": 2,
+    "fields": {
+      "version_number": 1,
+      "version_title": "1 издание",
+      "sign_current_version": false,
+      "product": 1
+    }
+  },
+  {
+    "model": "catalog.version",
+    "pk": 3,
+    "fields": {
+      "version_number": 2,
+      "version_title": "2 издание",
+      "sign_current_version": true,
+      "product": 2
+    }
+  },
+  {
+    "model": "catalog.version",
+    "pk": 4,
+    "fields": {
+      "version_number": 3,
+      "version_title": "2 издание",
+      "sign_current_version": true,
+      "product": 4
+    }
+  },
+  {
+    "model": "catalog.version",
+    "pk": 5,
+    "fields": {
+      "version_number": 1,
+      "version_title": "11",
+      "sign_current_version": true,
+      "product": 8
+    }
+  },
+  {
+    "model": "catalog.version",
+    "pk": 6,
+    "fields": {
+      "version_number": 1,
+      "version_title": "232",
+      "sign_current_version": true,
+      "product": 3
+    }
+  },
+  {
+    "model": "catalog.version",
+    "pk": 7,
+    "fields": {
+      "version_number": 141414,
+      "version_title": "1112121212",
+      "sign_current_version": true,
+      "product": 5
+    }
+  },
+  {
+    "model": "catalog.version",
+    "pk": 8,
+    "fields": {
+      "version_number": 123123123,
+      "version_title": "44444444444",
+      "sign_current_version": true,
+      "product": 7
+    }
+  },
+  {
+    "model": "catalog.version",
+    "pk": 9,
+    "fields": {
+      "version_number": 1111111111,
+      "version_title": "111111111111111111111111",
+      "sign_current_version": true,
+      "product": 11
+    }
+  },
+  {
+    "model": "catalog.version",
+    "pk": 10,
+    "fields": {
+      "version_number": 14141,
+      "version_title": "тететет",
+      "sign_current_version": true,
+      "product": 6
     }
   }
 ]

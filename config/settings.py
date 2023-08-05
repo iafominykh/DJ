@@ -147,4 +147,4 @@ EMAIL_HOST = 'smtp.mail.ru'
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 EMAIL_HOST_USER = 'testovnet676@bk.ru '
-EMAIL_HOST_PASSWORD = 'A.0xsd.0.ds0.'
+EMAIL_HOST_PASSWORD = 'uc3v0qxknn8QqD3EB7cz'

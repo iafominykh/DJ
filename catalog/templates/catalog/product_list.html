@@ -9,8 +9,10 @@
     <div class="col-md-4">
         <div class="card mb-4 box-shadow">
             <img class="card-img-top"
+
                  src="{{object.preview_image|my_media}}"
-                 alt="Card image cap">
+                 alt="Card image cap"
+            width="350" height="350">
             <div class="card-body">
                 <h2>{{object.name}}</h2>
 
@@ -18,6 +20,7 @@
                 {% for version in object.version_set.all %}
                 <p>Версия {{ version.version_number }}: {{ version.version_title }}</p>
                 {% endfor %}
+                <p>Client: {{ object.client|default:'не забронировано'}}</p>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                         <a href="{% url 'catalog:product_detail' object.pk%}" type="button"

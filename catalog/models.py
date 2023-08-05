@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.db import models
 
@@ -28,7 +29,7 @@ class Product(models.Model):
     price = models.IntegerField(**NULLABLE, verbose_name='Цена')
     creation_date = models.DateField(auto_now_add=True, verbose_name='Дата создания')
     last_modified = models.DateField(auto_now=True, verbose_name='Дата последнего изменения')
-
+    client = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL,**NULLABLE, verbose_name='Покупатель')
 
 
     def __str__(self):

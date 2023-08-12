@@ -6,6 +6,7 @@ from django.views.generic import ListView, DetailView, UpdateView, CreateView, D
 
 from catalog.forms import ProductForm, VersionForm
 from catalog.models import Category, Product, Version
+from catalog.services import get_categories
 
 
 # Create your views here.
@@ -14,6 +15,14 @@ class CategoryListView(ListView):
     model = Category
     template_name = 'catalog/categories.html'
 
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+        context_data['title'] = 'Список категорий'
+        return context_data
+
+    def get_queryset(self):
+        categories = get_categories()
+        return categories
 
 def index(request):
     context = {
@@ -42,7 +51,7 @@ class ProductDetailView(DetailView):
 
 class CategoryProductDetailView(DetailView):
     model = Category
-    template_name = 'catalog/product.html'
+    template_name = 'catalog/product_list.html'
     context_object_name = 'category'
 
     def get_context_data(self, **kwargs):
@@ -100,4 +109,4 @@ class ProductUpdateView(UpdateView):
 
 class ProductDeleteView(DeleteView):
     model = Product
-    success_url = reverse_lazy('catalog:product')
+    success_url = reverse_lazy('catalog:product_list')

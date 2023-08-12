@@ -11,12 +11,14 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
-
+from dotenv import load_dotenv
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+dotenv_path = os.path.join(BASE_DIR, '.env')
+load_dotenv(dotenv_path)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -146,5 +148,18 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.mail.ru'
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
-EMAIL_HOST_USER = 'testovnet676@bk.ru '
-EMAIL_HOST_PASSWORD = 'uc3v0qxknn8QqD3EB7cz'
+EMAIL_USE_TSL = True
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+
+CACHE_ENABLED = os.getenv('CACHE_ENABLED') == '1'
+
+CACHE_TIMEOUT = os.getenv('CACHE_TIMEOUT')
+
+if CACHE_ENABLED:
+    CACHES = {
+        "default": {
+            "BACKEND": "django.core.cache.backends.redis.RedisCache",
+            "LOCATION": os.getenv('CACHE_LOCATION'),
+        }
+    }

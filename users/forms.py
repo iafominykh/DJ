@@ -34,7 +34,6 @@ def generate_password(request):
     alphabet = string.ascii_letters + string.digits + string.punctuation
     password = ''.join(secrets.choice(alphabet) for i in range(16))  # генерируем пароль длиной 16 символов
     request.user.set_password(password)
-    request.user.save()
 
     send_mail(
         subject='Вы сменили пароль!',
